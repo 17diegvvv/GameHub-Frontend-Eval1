@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Órdenes | GameHub Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tabla-ordenes { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .tabla-ordenes th, .tabla-ordenes td { padding: 15px; text-align: left; border-bottom: 1px solid #2a3f5a; }
+        .estado-pagado { color: var(--color-acento); font-weight: bold; }
+        .estado-pendiente { color: #FF9900; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>GameHub</h1></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+            <a href="login.html" class="btn-ingresar">Ingresar</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <h2>Historial de Órdenes</h2>
+        <div style="background-color: var(--color-superficie); padding: 20px; border-radius: 8px;">
+            <table class="tabla-ordenes">
+                <thead>
+                    <tr>
+                        <th>N° Orden</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#GH-10024</td>
+                        <td>08/09/2026</td>
+                        <td>$110.000 CLP</td>
+                        <td class="estado-pagado">Pagado / En Preparación</td>
+                    </tr>
+                    <tr>
+                        <td>#GH-10019</td>
+                        <td>15/08/2026</td>
+                        <td>$45.000 CLP</td>
+                        <td class="estado-pagado">Entregado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar | GameHub Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-login { 
+            max-width: 400px; 
+            margin: 0 auto; 
+            background: var(--color-superficie); 
+            padding: 40px; 
+            border-radius: 8px; 
+        }
+        .form-grupo { 
+            margin-bottom: 20px; 
+        }
+        .form-grupo label { 
+            display: block; 
+            margin-bottom: 8px; 
+            color: var(--color-texto);
+        }
+        .form-grupo input { 
+            width: 100%; 
+            padding: 12px; 
+            border: none; 
+            border-radius: 4px; 
+            background: var(--color-fondo); 
+            color: white; 
+        }
+        .enlace-registro {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
+        .enlace-registro:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>GameHub</h1></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal" style="display: flex; align-items: center; justify-content: center; min-height: 65vh;">
+        <div style="width: 100%;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Iniciar Sesión</h2>
+            
+            <form class="form-login" id="form-login">
+                <div class="form-grupo">
+                    <label for="login-correo">Correo Electrónico</label>
+                    <input type="email" id="login-correo" required placeholder="tu@correo.com">
+                </div>
+                <div class="form-grupo">
+                    <label for="login-pass">Contraseña</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="btn-primario btn-bloque" style="font-size: 16px; padding: 12px;">Ingresar a mi cuenta</button>
+                
+                <a href="#" class="enlace-registro">¿No tienes cuenta? Regístrate aquí</a>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameHub Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Simulador de autenticación
+        document.getElementById("form-login").addEventListener("submit", function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+            const correo = document.getElementById("login-correo").value;
+            
+            alert(`¡Bienvenido de vuelta, ${correo}!`);
+            window.location.href = "index.html"; // Redirige al inicio
+        });
+    </script>
+</body>
+</html>

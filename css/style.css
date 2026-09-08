@@ -149,3 +149,115 @@ footer {
     margin-top: 5px;
     height: 20px;
 }
+/* Layout del Carrito */
+.contenedor-principal {
+    padding: 40px 5%;
+    min-height: 60vh;
+}
+
+.contenedor-principal h2 {
+    margin-bottom: 30px;
+}
+
+.layout-carrito {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.lista-carrito {
+    flex: 2;
+    background-color: var(--color-superficie);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #2a3f5a;
+}
+
+.item-carrito:last-child {
+    border-bottom: none;
+}
+
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cantidad {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-eliminar {
+    background-color: transparent;
+    color: var(--color-error);
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.resumen-compra {
+    flex: 1;
+    background-color: var(--color-superficie);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.fila-resumen.total {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-acento);
+    border-top: 1px solid #2a3f5a;
+    padding-top: 15px;
+}
+
+.cupon-caja {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cupon-caja input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--color-fondo);
+    color: white;
+}
+
+.btn-secundario {
+    background-color: #2a3f5a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-bloque {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}

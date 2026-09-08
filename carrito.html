@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Store | Mi Carrito</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>GameHub</h1>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+            <a href="login.html" class="btn-ingresar">Ingresar</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <h2>Mi Carrito de Compras</h2>
+        
+        <div class="layout-carrito">
+            <section class="lista-carrito" id="contenedor-carrito">
+                <!-- JS inyectará las líneas del carrito aquí -->
+            </section>
+
+            <aside class="resumen-compra">
+                <h3>Resumen</h3>
+                <div class="fila-resumen">
+                    <span>Subtotal:</span>
+                    <span id="subtotal-carrito">$0 CLP</span>
+                </div>
+                <div class="fila-resumen">
+                    <span>Descuento:</span>
+                    <span id="descuento-carrito">$0 CLP</span>
+                </div>
+                <div class="fila-resumen total">
+                    <span>Total:</span>
+                    <span id="total-carrito">$0 CLP</span>
+                </div>
+
+                <div class="cupon-caja">
+                    <input type="text" id="input-cupon" placeholder="Código de descuento">
+                    <button class="btn-secundario" onclick="aplicarCupon()">Aplicar</button>
+                    <p id="mensaje-cupon" class="mensaje-error"></p>
+                </div>
+
+                <a href="checkout.html" class="btn-primario btn-bloque" id="btn-pagar">Ir a Pagar</a>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameHub Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar | GameHub Store</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>GameHub</h1></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <h2 style="text-align: center; margin-bottom: 30px;">Finalizar Compra</h2>
+        
+        <div class="layout-carrito">
+            <form class="form-checkout" id="form-checkout" style="flex: 2; background: var(--color-superficie); padding: 30px; border-radius: 8px;">
+                <h3>Datos de Despacho</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Nombre Completo</label>
+                        <input type="text" id="checkout-nombre" style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Correo Electrónico</label>
+                        <input type="email" id="checkout-correo" style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Teléfono</label>
+                        <input type="text" id="checkout-tel" placeholder="Ej: 987654321" style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                        <p id="error-tel" class="mensaje-error"></p>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Región</label>
+                        <select style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                            <option value="">Seleccione...</option>
+                            <option value="RM">Metropolitana</option>
+                            <option value="V">Valparaíso</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Comuna</label>
+                        <input type="text" id="checkout-comuna" style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px;">Dirección Física</label>
+                        <input type="text" id="checkout-dir" style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">Método de Pago</h3>
+                <div>
+                    <select style="width: 100%; padding: 10px; border-radius: 4px; border: none; background: var(--color-fondo); color: white;" required>
+                        <option value="credito">Tarjeta de Crédito</option>
+                        <option value="debito">Tarjeta de Débito</option>
+                        <option value="transferencia">Transferencia Bancaria</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primario btn-bloque" style="margin-top: 30px;">Pagar y Confirmar Pedido</button>
+            </form>
+
+            <aside class="resumen-compra" style="flex: 1; background: var(--color-superficie); padding: 20px; border-radius: 8px;">
+                <h3 style="margin-bottom: 20px;">Resumen de la Orden</h3>
+                <div id="resumen-checkout">
+                    <!-- JS inyectará el resumen aquí -->
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameHub Store.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
