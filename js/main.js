@@ -40,6 +40,11 @@ const productos = [
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let descuentoAplicado = 0;
 
+function validarCorreoRestringido(correo) {
+    const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
+    return dominiosPermitidos.some(dominio => correo.endsWith(dominio));
+}
+
 function renderizarCatalogo(idContenedor) {
     const contenedor = document.getElementById(idContenedor);
     if (!contenedor) return;
@@ -52,8 +57,8 @@ function renderizarCatalogo(idContenedor) {
         const precioFormateado = producto.precio.toLocaleString('es-CL');
         
         article.innerHTML = `
-            <div style="margin-bottom: 15px; height: 160px; overflow: hidden; border-radius: 4px;">
-                <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="margin-bottom: 15px; height: 160px; overflow: hidden; border-radius: 4px; background: white;">
+                <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
             <h4>${producto.nombre}</h4>
             <p class="precio">$${precioFormateado} CLP</p>
@@ -81,8 +86,8 @@ function renderizarDetalle() {
 
     contenedor.innerHTML = `
         <div style="display: flex; gap: 40px; background: var(--color-superficie); padding: 40px; border-radius: 8px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; border-radius: 8px; object-fit: cover;">
+            <div style="flex: 1; min-width: 300px; background: white; border-radius: 8px; padding: 20px; display: flex; align-items: center; justify-content: center;">
+                <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; max-height: 400px; object-fit: contain;">
             </div>
             <div style="flex: 1; min-width: 300px;">
                 <h2 style="margin-bottom: 10px;">${producto.nombre}</h2>
@@ -149,7 +154,9 @@ function renderizarCarrito() {
         
         div.innerHTML = `
             <div style="display:flex; align-items:center; gap: 15px;">
-                <img src="${item.imagen}" style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;">
+                <div style="width: 50px; height: 50px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                    <img src="${item.imagen}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
                 <div>
                     <h4>${item.nombre}</h4>
                     <p>$${item.precio.toLocaleString('es-CL')} c/u</p>
@@ -253,6 +260,7 @@ function renderizarResumenCheckout() {
     contenedorResumen.innerHTML = html;
 }
 
+// Eventos de Formularios
 const formCheckout = document.getElementById("form-checkout");
 if (formCheckout) {
     formCheckout.addEventListener("submit", function(e) {
@@ -262,6 +270,12 @@ if (formCheckout) {
             return;
         }
         
+        const correo = document.getElementById("checkout-correo").value;
+        if (!validarCorreoRestringido(correo)) {
+            alert("El correo de despacho debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com");
+            return;
+        }
+
         const telefono = document.getElementById("checkout-tel").value;
         if (telefono.length < 8 || isNaN(telefono)) {
             document.getElementById("error-tel").innerText = "Ingresa un teléfono numérico válido.";
@@ -274,6 +288,59 @@ if (formCheckout) {
     });
 }
 
+const formRegistro = document.getElementById("form-registro");
+if (formRegistro) {
+    formRegistro.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const correo = document.getElementById("registro-correo").value;
+        const pass = document.getElementById("registro-pass").value;
+        const passConfirm = document.getElementById("registro-pass-confirm").value;
+        const tel = document.getElementById("registro-tel").value;
+
+        if (!validarCorreoRestringido(correo)) {
+            alert("Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com");
+            return;
+        }
+        
+        if (pass.length < 4 || pass.length > 10) {
+            alert("La contraseña debe tener entre 4 y 10 caracteres.");
+            return;
+        }
+        
+        if (pass !== passConfirm) {
+            alert("Las contraseñas no coinciden.");
+            return;
+        }
+
+        if (tel && (tel.length < 8 || isNaN(tel))) {
+            alert("El teléfono debe ser un número válido.");
+            return;
+        }
+
+        alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+        window.location.href = "login.html";
+    });
+}
+
+const formNewsletter = document.getElementById("form-newsletter");
+if (formNewsletter) {
+    formNewsletter.addEventListener("submit", function(e) {
+        e.preventDefault(); 
+        const email = document.getElementById("email-news").value;
+        const errorElement = document.getElementById("error-news");
+        
+        if (!validarCorreoRestringido(email)) {
+            errorElement.innerText = "Solo correos @duoc.cl, @profesor.duoc.cl o @gmail.com";
+        } else {
+            errorElement.innerText = "";
+            alert("¡Suscripción exitosa!");
+            formNewsletter.reset();
+        }
+    });
+}
+
+// Ejecución
 renderizarCatalogo("contenedor-destacados");
 renderizarCatalogo("contenedor-catalogo");
 renderizarCarrito();

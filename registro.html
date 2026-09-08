@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | GameHub Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-registro { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background: var(--color-superficie); 
+            padding: 40px; 
+            border-radius: 8px; 
+        }
+        .form-grupo { margin-bottom: 20px; }
+        .form-grupo label { display: block; margin-bottom: 8px; color: var(--color-texto); }
+        .form-grupo input, .form-grupo select { 
+            width: 100%; padding: 12px; border: none; border-radius: 4px; 
+            background: var(--color-fondo); color: white; 
+        }
+        .doble-columna { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><h1>GameHub</h1></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+        <h2 style="text-align: center; margin-bottom: 30px;">Crear Cuenta</h2>
+        
+        <form class="form-registro" id="form-registro">
+            <div class="form-grupo">
+                <label for="registro-nombre">Nombre Completo</label>
+                <input type="text" id="registro-nombre" required>
+            </div>
+            
+            <div class="doble-columna">
+                <div class="form-grupo">
+                    <label for="registro-correo">Correo Electrónico</label>
+                    <input type="email" id="registro-correo" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="registro-tel">Teléfono (Opcional)</label>
+                    <input type="text" id="registro-tel" placeholder="Ej: 987654321">
+                </div>
+            </div>
+
+            <div class="doble-columna">
+                <div class="form-grupo">
+                    <label for="registro-pass">Contraseña</label>
+                    <input type="password" id="registro-pass" required placeholder="4 a 10 caracteres">
+                </div>
+                <div class="form-grupo">
+                    <label for="registro-pass-confirm">Confirmar Contraseña</label>
+                    <input type="password" id="registro-pass-confirm" required>
+                </div>
+            </div>
+
+            <div class="doble-columna">
+                <div class="form-grupo">
+                    <label for="registro-region">Región</label>
+                    <select id="registro-region" required>
+                        <option value="">Seleccione...</option>
+                        <option value="RM">Metropolitana</option>
+                        <option value="V">Valparaíso</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="registro-comuna">Comuna</label>
+                    <select id="registro-comuna" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Santiago">Santiago</option>
+                        <option value="Providencia">Providencia</option>
+                        <option value="Viña del Mar">Viña del Mar</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-primario btn-bloque" style="font-size: 16px; padding: 12px; margin-top: 10px;">Registrarse</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameHub Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

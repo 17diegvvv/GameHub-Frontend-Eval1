@@ -70,7 +70,7 @@
                 
                 <button type="submit" class="btn-primario btn-bloque" style="font-size: 16px; padding: 12px;">Ingresar a mi cuenta</button>
                 
-                <a href="#" class="enlace-registro">¿No tienes cuenta? Regístrate aquí</a>
+                <a href="registro.html" class="enlace-registro">¿No tienes cuenta? Regístrate aquí</a>
             </form>
         </div>
     </main>
@@ -81,13 +81,29 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Simulador de autenticación
         document.getElementById("form-login").addEventListener("submit", function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault(); 
+            
             const correo = document.getElementById("login-correo").value;
+            const pass = document.getElementById("login-pass").value;
+            
+            // Validación dominio de correo
+            const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
+            const correoValido = dominiosPermitidos.some(dominio => correo.endsWith(dominio));
+            
+            if (!correoValido) {
+                alert("El correo debe pertenecer a @duoc.cl, @profesor.duoc.cl o @gmail.com");
+                return;
+            }
+            
+            // Validación Contraseñas: Largo exigido
+            if (pass.length < 4 || pass.length > 10) {
+                alert("La contraseña debe tener entre 4 y 10 caracteres.");
+                return;
+            }
             
             alert(`¡Bienvenido de vuelta, ${correo}!`);
-            window.location.href = "index.html"; // Redirige al inicio
+            window.location.href = "index.html";
         });
     </script>
 </body>
