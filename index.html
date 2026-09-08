@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Store | Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>GameHub</h1>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="ordenes.html">Mis Órdenes</a>
+        </nav>
+        <div class="carrito-nav">
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+            <a href="checkout.html" class="btn-ingresar">Ingresar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h2>Haz Crecer Tu Cuenta Rapido</h2>
+            <p>Encuentra el mejor hardware y periféricos para dominar cada partida.</p>
+            <a href="catalogo.html" class="btn-primario">Ver Catálogo</a>
+        </section>
+
+        <section class="destacados">
+            <h3>Productos Destacados</h3>
+            <div class="grid-productos" id="contenedor-destacados"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="newsletter">
+            <h4>Suscríbete a nuestras ofertas</h4>
+            <form id="form-newsletter" novalidate>
+                <input type="email" id="email-news" placeholder="tu@correo.com">
+                <button type="submit" class="btn-primario">Suscribir</button>
+                <p id="error-news" class="mensaje-error"></p>
+            </form>
+        </div>
+        <p>&copy; 2026 GameHub Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
